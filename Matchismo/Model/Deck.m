@@ -8,6 +8,8 @@
 
 #import "Deck.h"
 
+//Teste
+
 @interface Deck()
 
 @property (nonatomic,strong) NSMutableArray *cards;

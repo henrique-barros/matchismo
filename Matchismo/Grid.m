@@ -8,6 +8,8 @@
 
 #import "Grid.h"
 
+//Teste
+
 @interface Grid()
 @property (nonatomic) BOOL resolved;
 @property (nonatomic) BOOL unresolvable;
