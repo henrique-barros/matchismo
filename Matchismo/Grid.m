@@ -18,6 +18,8 @@
 @property (nonatomic, readwrite) CGSize cellSize;
 @end
 
+//teste3
+
 @implementation Grid
 
 - (void)validate
