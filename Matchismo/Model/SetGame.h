@@ -7,7 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CardMatchingGame.h"
 
-@interface SetGame : NSObject
+@interface SetGame : CardMatchingGame
+
+
+@property (nonatomic, strong) NSMutableArray* setGameStatus;
+
+@property (nonatomic) BOOL matched;
+@property (nonatomic, getter=isMoveCompleted) BOOL moveCompleted;
+@property (nonatomic, strong) NSMutableArray* matchHistory;
+
+-(instancetype)initWithCardCount:(NSUInteger)count
+                       usingDeck:(Deck *)deck;
+
+
+-(NSArray *)lastMatch;
+-(void) removeMatchedCards;
+
 
 @end

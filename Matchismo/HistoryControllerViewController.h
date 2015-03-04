@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SetCard.h"
+#import "SetGameViewController.h"
 
 @interface HistoryControllerViewController : UIViewController
+
+@property (nonatomic, strong) NSArray *matchHistory;
+
 
 @end

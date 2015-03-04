@@ -10,6 +10,54 @@
 
 @implementation PlayingCard
 
+-(int)match:(NSArray *)otherCards {
+    int score = 0;
+    if ([otherCards count] ==1 ) {
+        id card = [otherCards firstObject];
+        if ([card isKindOfClass:[PlayingCard class]]) {
+            PlayingCard *otherCard = (PlayingCard *) card;
+            if (otherCard.rank == self.rank) {
+                score = 4;
+            } else if (otherCard.suit == self.suit) {
+                score = 1;
+            }
+        }
+    }
+    //Assignment 2
+    else {
+        id card = otherCards[0];
+        id card2 = otherCards[1];
+        if ([card isKindOfClass:[PlayingCard class]]) {
+            PlayingCard *otherCard = (PlayingCard *) card;
+            if (otherCard.rank == self.rank) {
+                score +=4;
+            } else if (otherCard.suit == self.suit) {
+                score +=1;
+            }
+        }
+        if ([card2 isKindOfClass:[PlayingCard class]]) {
+            PlayingCard *otherCard2 = (PlayingCard *) card2;
+            if (otherCard2.rank == self.rank) {
+                score +=4;
+            } else if (otherCard2.suit == self.suit) {
+                score +=1;
+            }
+        }
+        if ([card isKindOfClass:[PlayingCard class]] && [card2 isKindOfClass:[PlayingCard class]]) {
+            PlayingCard *otherCard = (PlayingCard *) card;
+            PlayingCard *otherCard2 = (PlayingCard *) card2;
+            if (otherCard.rank == otherCard2.rank) {
+                score +=4;
+            } else if (otherCard.suit == otherCard2.suit) {
+                score +=1;
+            }
+        }
+    }
+    
+    
+    return score;
+}
+
 -(NSString *)contents{
     NSArray *rankStrings = [PlayingCard rankStrings];
     return [rankStrings[self.rank] stringByAppendingString:self.suit];
@@ -17,7 +65,7 @@
 
 @synthesize suit = _suit; //because we provide setter and getter
 + (NSArray *) validSuits {
-    return @[@"♥︎",@"♦︎",@"♠︎",@"♣︎"];
+    return @[@"♥️",@"♦️",@"♠️",@"♣️"];
 }
 -(void)setSuit:(NSString *)suit {
     if([[PlayingCard validSuits] containsObject:suit]) {
@@ -34,7 +82,7 @@
 }
 
 + (NSUInteger)maxRank {
-    return [[PlayingCard rankStrings] count] -1;
+    return [[PlayingCard rankStrings] count];
 }
 
 - (void)setRank:(NSUInteger)rank   {

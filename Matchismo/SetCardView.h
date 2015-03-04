@@ -10,4 +10,11 @@
 
 @interface SetCardView : UIView
 
+@property (nonatomic,strong) NSString *number;
+@property (nonatomic, strong) NSString *symbol;
+@property (nonatomic, strong) NSString *color;
+@property (nonatomic, strong) NSString *shading;
+
+@property (nonatomic,getter=isActive) BOOL active;
+
 @end

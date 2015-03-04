@@ -10,4 +10,8 @@
 
 @interface History : NSObject
 
+- (NSString *)lastMove;
+- (NSString *)moveAtIndex:(NSInteger)index;
+- (void)addMove:(NSString *)move;
+
 @end

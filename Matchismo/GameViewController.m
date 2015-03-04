@@ -14,24 +14,30 @@
 
 @implementation GameViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+-(BOOL)gameHasStarted {
+    return _gameHasStarted;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(NSMutableArray *)cardButtons {
+    if (!_cardButtons) {
+        _cardButtons = [[NSMutableArray alloc] init];
+    }
+    return _cardButtons;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)addCardButton:(UIView *)cardButton {
+    [self.cardButtons addObject:cardButton];
 }
-*/
+-(void)removeCardButtonAtIndex:(NSInteger)index {
+    [self.cardButtons removeObjectAtIndex:index];
+}
+-(Grid *)createGridOfSize:(CGSize)size withAspectRatio:(CGFloat)aspectRatio withMinimumNumberOfCells:(NSUInteger)minCells {
+    Grid *grid = [[Grid alloc] init];
+    grid.size = size;
+    grid.cellAspectRatio = aspectRatio;
+    grid.minimumNumberOfCells = minCells;
+    return grid;
+}
 
 @end

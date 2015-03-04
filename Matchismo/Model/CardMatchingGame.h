@@ -7,7 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Card.h"
+#import "Deck.h"
 
 @interface CardMatchingGame : NSObject
+@property (nonatomic, getter=isCards3Match) BOOL Cards3Match;
+@property (nonatomic, readwrite) NSInteger score;
+@property (nonatomic, strong) NSMutableArray *cards; //of Card
+@property (nonatomic, readwrite) NSInteger numberOfChosenCards;
+
+
+//designated initializer
+-(instancetype)initWithCardCount:(NSUInteger)count
+                       usingDeck:(Deck *)deck;
+
+-(void)chooseCardAtIndex:(NSUInteger) index;
+-(Card *)cardAtIndex:(NSUInteger)index;
+
+-(void)setCards3Match:(BOOL)Cards3Match;
+
+@property (nonatomic, readonly) NSString * status;
+
 
 @end

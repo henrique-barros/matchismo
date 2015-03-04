@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SetCard.h"
+#import "GameViewController.h"
+#import "SetCardView.h"
 
-@interface SetGameViewController : UIViewController
+@interface SetGameViewController : GameViewController
+
++ (NSMutableAttributedString *)setAttributedStringForCard:(SetCard *)setCard;
 
 @end
